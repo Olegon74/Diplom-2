@@ -1,6 +1,5 @@
 import client.UserClient;
 import generator.UserGenerator;
-import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
 import junitparams.JUnitParamsRunner;
@@ -34,7 +33,7 @@ public class RegisterUserTest {
         statusCode = responseRegister.extract().statusCode();
         isRegistered = responseRegister.extract().path("success");
 
-        ValidatableResponse responseDelete = UserClient.deleteUser(token);
+        UserClient.deleteUser(token);
 
         Assert.assertEquals("Ошибка в коде или теле ответа", List.of(SC_OK, true),
                 List.of(statusCode, isRegistered));
@@ -51,7 +50,7 @@ public class RegisterUserTest {
         statusCode = responseRegister2.extract().statusCode();
         isRegistered = responseRegister2.extract().path("success");
 
-        ValidatableResponse responseDelete = UserClient.deleteUser(token);
+        UserClient.deleteUser(token);
 
         Assert.assertEquals("Ошибка в коде или теле ответа", List.of(SC_FORBIDDEN, false),
                 List.of(statusCode, isRegistered));

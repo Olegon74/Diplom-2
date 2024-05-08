@@ -34,7 +34,7 @@ public class CreateOrderTest {
 
     @AfterClass
     public static void afterAll(){
-        ValidatableResponse responseDelete = UserClient.deleteUser(token);
+        UserClient.deleteUser(token);
     }
 
     @Test

@@ -30,12 +30,12 @@ public class GetUserOrdersTest {
     public static void setUp() {
         ValidatableResponse responseRegister = UserClient.registerUser(registerData);
         token = responseRegister.extract().path("accessToken");
-        ValidatableResponse responseCreateOrder = OrderClient.createOrder(createOrderData, token);
+        OrderClient.createOrder(createOrderData, token);
     }
 
     @AfterClass
     public static void tearDown() {
-        ValidatableResponse responseDelete = UserClient.deleteUser(token);
+        UserClient.deleteUser(token);
     }
 
     @Test
